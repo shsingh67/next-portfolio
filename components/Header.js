@@ -44,7 +44,7 @@ HideOnScroll.propTypes = {
     window: PropTypes.func,
 };
 
-export default function ButtonAppBar(props) {
+const Header = props => {
     const classes = useStyles();
 
     return (
@@ -67,3 +67,5 @@ export default function ButtonAppBar(props) {
         </>
     );
 }
+
+export default Header;
