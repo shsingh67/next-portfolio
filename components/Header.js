@@ -44,6 +44,8 @@ HideOnScroll.propTypes = {
     window: PropTypes.func,
 };
 
+
+
 const Header = props => {
     const classes = useStyles();
 
@@ -57,9 +59,9 @@ const Header = props => {
                             <Typography variant="h6" className={classes.title}>
                                 Sharandeep Singh
                             </Typography>
-                            <Button color="inherit">About</Button>
-                            <Button color="inherit">Experience</Button>
-                            <Button color="inherit">Project</Button>
+                            <Button color="inherit" onClick={props.handleAbout}>About</Button>
+                            <Button color="inherit" onClick={props.handleExp}>Experience</Button>
+                            <Button color="inherit" onClick={props.handleProj}>Project</Button>
                         </Toolbar>
                     </AppBar>
                 </HideOnScroll>
