@@ -2,6 +2,7 @@ import Header from '../components/Header'
 import TabBox from '../components/TabBox'
 import ProjectCard from '../components/ProjectCard'
 import { Grid, Typography, makeStyles, Container, Divider, Card, CardContent, Chip } from '@material-ui/core';
+import { useRef } from 'react';
 
 
 const useStyles = makeStyles(theme => ({
@@ -27,12 +28,31 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
+const scrollToRef = (ref) => {
+    window.scrollTo(0, ref.current.offsetTop)
+}
+
 export default function Index() {
     const classes = useStyles();
+    const aboutRef = useRef(null);
+    const expRef = useRef(null);
+    const projRef = useRef(null);
+    
+    const handleAbout = () => {
+        scrollToRef(aboutRef)
+    }
+
+    const handleExp = () => {
+        scrollToRef(expRef)
+    }
+
+    const handleProj = () => {
+        scrollToRef(projRef)
+    }
 
     return (
         <div>
-            <Header />
+            <Header handleAbout={handleAbout} handleExp={handleExp} handleProj={handleProj}/>
 
             <Container fixed>
                 <Typography variant="subtitle1" className={classes.text_1} gutterBottom>
@@ -46,11 +66,13 @@ export default function Index() {
                 <Typography variant="body1" className={classes.text_2} gutterBottom>
                     I am a Software Engineer from San Jose State University, located in Union City, CA.
                 </Typography>
-
-                <Typography variant="h4" className={classes.text_3} gutterBottom>
-                    About
-                </Typography>
-
+                
+                <div ref={aboutRef}>
+                    <Typography variant="h4" className={classes.text_3} gutterBottom>
+                        About
+                    </Typography>
+                </div>
+               
                 <Typography variant="body1" className={classes.text_4} gutterBottom>
                     Hello! I am Sharandeep, a Software Engineer with a versatile set of skills. I like to develop distributed applications
                     that can be scaled to handle large amounts of traffic.<br></br> <br></br> My main focus is in back-end engineering, although I am also
@@ -95,15 +117,19 @@ export default function Index() {
 
                 </Typography>
 
-                <Typography variant="h4" gutterBottom>
-                    Experience
-                </Typography>
+                <div ref={expRef}>
+                    <Typography variant="h4" gutterBottom>
+                        Experience
+                    </Typography>
+                </div>
 
                 <TabBox />
 
-                <Typography variant="h4" className={classes.text_5} gutterBottom>
-                    Projects
-                </Typography>
+                <div ref={projRef}>
+                    <Typography variant="h4" className={classes.text_5} gutterBottom>
+                        Projects
+                    </Typography>
+                </div>
 
                 <Grid container direction="row" spacing={3} >
                     <Grid item xs={4}>
