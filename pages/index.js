@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
     },
     chip: {
-        margin: theme.spacing(0.5)
+        margin: theme.spacing(0.15)
     }
 
 }));
@@ -55,44 +55,44 @@ export default function Index() {
                     </div>
                     <Typography variant="body1">
                         Hello! I am Sharandeep, a Software Engineer with a versatile set of skills. I like to develop distributed applications
-                            that can be scaled to handle large amounts of traffic.<br></br> <br></br> My main focus is in back-end engineering, although I am also
-                            experienced in front-end development and DevOps.<br></br><br></br>
+                        that can be scaled to handle large amounts of traffic.<br></br> <br></br> My main focus is in back-end engineering, although I am also
+                        experienced in front-end development and DevOps.<br></br><br></br>
                     </Typography>
 
                     <Typography variant="subtitle1" gutterBottom>
                         Languages:
-                        <Chip label="Java" variant="outlined" />
-                        <Chip label="Golang" variant="outlined" />
-                        <Chip label="Python" variant="outlined" />
-                        <Chip label="JavaScript" variant="outlined" />
+                        <Chip label="Java" variant="outlined" className={classes.chip}/>
+                        <Chip label="Golang" variant="outlined" className={classes.chip}/>
+                        <Chip label="Python" variant="outlined" className={classes.chip}/>
+                        <Chip label="JavaScript" variant="outlined" className={classes.chip}/>
                     </Typography>
 
                     <Typography variant="subtitle1" gutterBottom>
                         DevOps:
-                        <Chip label="Jenkins" variant="outlined" />
-                        <Chip label="Kubernetes" variant="outlined" />
+                        <Chip label="Jenkins" variant="outlined" className={classes.chip}/>
+                        <Chip label="Kubernetes" variant="outlined" className={classes.chip}/>
                     </Typography>
 
                     <Typography variant="subtitle1" gutterBottom>
                         Front-End:
-                        <Chip label="React.Js" variant="outlined" />
-                        <Chip label="Next.Js" variant="outlined" />
+                        <Chip label="React.Js" variant="outlined" className={classes.chip}/>
+                        <Chip label="Next.Js" variant="outlined" className={classes.chip}/>
                     </Typography>
 
                     <Typography variant="subtitle1" gutterBottom>
                         Back-End:
-                        <Chip label="Spring Framework" variant="outlined" />
-                        <Chip label="Hibernate ORM" variant="outlined" />
-                        <Chip label="Spring Boot" variant="outlined" />
+                        <Chip label="Spring Framework" variant="outlined" className={classes.chip}/>
+                        <Chip label="Hibernate ORM" variant="outlined" className={classes.chip}/>
+                        <Chip label="Spring Boot" variant="outlined" className={classes.chip}/>
                     </Typography>
 
                     <Typography variant="subtitle1" gutterBottom>
                         Databases:
-                        <Chip label="Kafka" variant="outlined" />
-                        <Chip label="Orcale SQL" variant="outlined" />
-                        <Chip label="MongoDB" variant="outlined" />
-                        <Chip label="Cassandra" variant="outlined" />
-                        <Chip label="DynamoDB" variant="outlined" />
+                        <Chip label="Kafka" variant="outlined" className={classes.chip}/>
+                        <Chip label="Orcale SQL" variant="outlined" className={classes.chip}/>
+                        <Chip label="MongoDB" variant="outlined" className={classes.chip}/>
+                        <Chip label="Cassandra" variant="outlined" className={classes.chip}/>
+                        <Chip label="DynamoDB" variant="outlined" className={classes.chip}/>
                     </Typography>
                 </Grid>
 
