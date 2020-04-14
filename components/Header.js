@@ -65,6 +65,7 @@ const Header = props => {
                         </Toolbar>
                     </AppBar>
                 </HideOnScroll>
+                <Toolbar/>
             </div>
         </>
     );
