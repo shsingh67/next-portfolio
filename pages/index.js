@@ -61,7 +61,7 @@ export default function Index() {
 
                     <Typography variant="subtitle1" gutterBottom>
                         Languages:
-                            <Chip label="Java" variant="outlined" />
+                        <Chip label="Java" variant="outlined" />
                         <Chip label="Golang" variant="outlined" />
                         <Chip label="Python" variant="outlined" />
                         <Chip label="JavaScript" variant="outlined" />
@@ -69,26 +69,26 @@ export default function Index() {
 
                     <Typography variant="subtitle1" gutterBottom>
                         DevOps:
-                            <Chip label="Jenkins" variant="outlined" />
+                        <Chip label="Jenkins" variant="outlined" />
                         <Chip label="Kubernetes" variant="outlined" />
                     </Typography>
 
                     <Typography variant="subtitle1" gutterBottom>
                         Front-End:
-                            <Chip label="React.Js" variant="outlined" />
+                        <Chip label="React.Js" variant="outlined" />
                         <Chip label="Next.Js" variant="outlined" />
                     </Typography>
 
                     <Typography variant="subtitle1" gutterBottom>
                         Back-End:
-                            <Chip label="Spring Framework" variant="outlined" />
+                        <Chip label="Spring Framework" variant="outlined" />
                         <Chip label="Hibernate ORM" variant="outlined" />
                         <Chip label="Spring Boot" variant="outlined" />
                     </Typography>
 
                     <Typography variant="subtitle1" gutterBottom>
                         Databases:
-                            <Chip label="Kafka" variant="outlined" />
+                        <Chip label="Kafka" variant="outlined" />
                         <Chip label="Orcale SQL" variant="outlined" />
                         <Chip label="MongoDB" variant="outlined" />
                         <Chip label="Cassandra" variant="outlined" />
