@@ -140,47 +140,6 @@ export default function Index() {
                 </Grid>
 
             </Grid>
-
-
-
-            {/* <div ref={expRef}>
-                    <Typography variant="h4" gutterBottom>
-                        Experience
-                    </Typography>
-                </div>
-
-                <TabBox />
-
-                <div ref={projRef}>
-                    <Typography variant="h4" className={classes.text_5} gutterBottom>
-                        Projects
-                    </Typography>
-                </div>
-
-                <Grid container direction="row" spacing={3} >
-                    <Grid item xs={4}>
-                        <ProjectCard title="Zule" link="https://github.com/shsingh67/next-hotels">
-                            A simple web application that allows hotel search and booking.<br></br><br></br>
-                        </ProjectCard>
-                        
-                    </Grid>
-
-                    <Grid item xs={4}>
-                        <ProjectCard title="Hotels Search Service" link="https://github.com/shsingh67/hotels-search-service">
-                            Spring Boot micro-service that exposes a Rest API for searching hotels. The service uses Redis data storage to speed up query resutls.
-                        </ProjectCard>
-                    </Grid>
-
-                    <Grid item xs={4}>
-                        <ProjectCard title="Deployment Service" link="https://github.com/shsingh67/Services-Automation">
-                            A proof of concept to show how deploying docker containers to AWS EC2 can be completely automated.
-                        </ProjectCard>
-                        
-                    </Grid>
-                </Grid> */}
-
-
-
         </div>
 
     );
