@@ -54,6 +54,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexGrow: 1,
     //marginLeft: theme.spacing(1)
+  },
+  chip: {
+    margin: theme.spacing(0.15)
   }
 }));
 
@@ -93,11 +96,11 @@ export default function TabBox() {
         </div>
         <Typography variant="subtitle1" gutterBottom>
           <br></br>Technologies:
-          <Chip label="Golang" variant="outlined" />
-          <Chip label="Python" variant="outlined" />
-          <Chip label="GRPC" variant="outlined" />
-          <Chip label="Protocol Buffers" variant="outlined" />
-          <Chip label="Amazon Web Services" variant="outlined" />
+          <Chip label="Golang" variant="outlined" className={classes.chip}/>
+          <Chip label="Python" variant="outlined" className={classes.chip}/>
+          <Chip label="GRPC" variant="outlined" className={classes.chip}/>
+          <Chip label="Protocol Buffers" variant="outlined" className={classes.chip}/>
+          <Chip label="Amazon Web Services" variant="outlined" className={classes.chip}/>
         </Typography>
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -111,11 +114,11 @@ export default function TabBox() {
         </div>
         <Typography variant="subtitle1" gutterBottom>
           <br></br>Technologies:
-          <Chip label="Spring Framework" variant="outlined" />
-          <Chip label="Hibernate ORM" variant="outlined" />
-          <Chip label="Spring Boot" variant="outlined" />
-          <Chip label="Orcale SQL" variant="outlined" />
-          <Chip label="RESTful API" variant="outlined" />
+          <Chip label="Spring Framework" variant="outlined" className={classes.chip}/>
+          <Chip label="Hibernate ORM" variant="outlined" className={classes.chip}/>
+          <Chip label="Spring Boot" variant="outlined" className={classes.chip}/>
+          <Chip label="Orcale SQL" variant="outlined" className={classes.chip}/>
+          <Chip label="RESTful API" variant="outlined" className={classes.chip}/>
         </Typography>
       </TabPanel>
     </div>
