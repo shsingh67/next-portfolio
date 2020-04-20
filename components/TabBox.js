@@ -53,11 +53,12 @@ const useStyles = makeStyles(theme => ({
   },
   icon: {
     display: 'flex',
-    flexGrow: 1,
-    
   },
   chip: {
     margin: theme.spacing(0.15)
+  },
+  tabPanel: {
+    overflow: "scroll"
   }
 }));
 
@@ -82,7 +83,7 @@ export default function TabBox() {
         <Tab label="Araali Networks" {...a11yProps(0)} />
         <Tab label="Zaplabs" {...a11yProps(1)} />
       </Tabs>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0} className={classes.tabPanel}>
         <div className={classes.icon}>
           <ArrowRightIcon />
           Worked independently and took ownership of projects from design to implementation in Go and Python.
@@ -102,9 +103,10 @@ export default function TabBox() {
           <Chip label="gRPC" variant="outlined" className={classes.chip}/>
           <Chip label="Protocol Buffers" variant="outlined" className={classes.chip}/>
           <Chip label="Amazon Web Services" variant="outlined" className={classes.chip}/>
+          <Chip label="Jenkins" variant="outlined" className={classes.chip}/>
         </Typography>
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={1} className={classes.tabPanel}>
         <div className={classes.icon}>
           <ArrowRightIcon />
           Part of the back-end team at Zaplabs, under the Agile software development Life Cycle.
