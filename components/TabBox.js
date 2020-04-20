@@ -49,11 +49,12 @@ const useStyles = makeStyles(theme => ({
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
+    width: 300
   },
   icon: {
     display: 'flex',
     flexGrow: 1,
-    //marginLeft: theme.spacing(1)
+    
   },
   chip: {
     margin: theme.spacing(0.15)
@@ -98,7 +99,7 @@ export default function TabBox() {
           <br></br>Technologies:
           <Chip label="Golang" variant="outlined" className={classes.chip}/>
           <Chip label="Python" variant="outlined" className={classes.chip}/>
-          <Chip label="GRPC" variant="outlined" className={classes.chip}/>
+          <Chip label="gRPC" variant="outlined" className={classes.chip}/>
           <Chip label="Protocol Buffers" variant="outlined" className={classes.chip}/>
           <Chip label="Amazon Web Services" variant="outlined" className={classes.chip}/>
         </Typography>
