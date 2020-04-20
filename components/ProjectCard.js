@@ -10,7 +10,8 @@ import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-      height:"350px"
+      height:"300px",
+      width: "290px"
   },
   position: {
       alignItems: "flex-end"
