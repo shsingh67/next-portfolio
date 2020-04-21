@@ -6,19 +6,25 @@ import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Box, Chip, Grid } from '@material-ui/core';
+import { Box, Chip, Grid, useScrollTrigger, Slide, Container } from '@material-ui/core';
 import TabBox from '../components/TabBox'
 import ProjectCard from '../components/ProjectCard'
+import InfoIcon from '@material-ui/icons/Info';
+import WorkIcon from '@material-ui/icons/Work';
+import CreateIcon from '@material-ui/icons/Create';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+
+
+
 
 const drawerWidth = 240;
 
@@ -33,10 +39,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     appBar: {
-        [theme.breakpoints.up('sm')]: {
-            width: `calc(100% - ${drawerWidth}px)`,
-            marginLeft: drawerWidth,
-        },
+        zIndex: theme.zIndex.drawer + 1,
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -53,11 +56,38 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
+    media: {
+        position: "absolute",
+        bottom: "100px",
+    }
 }));
 
 const scrollToRef = (ref) => {
     window.scrollTo(0, ref.current.offsetTop)
 }
+
+function HideOnScroll(props) {
+    const { children, window } = props;
+    // Note that you normally won't need to set the window ref as useScrollTrigger
+    // will default to window.
+    // This is only being set here because the demo is in an iframe.
+    const trigger = useScrollTrigger({ target: window ? window() : undefined });
+
+    return (
+        <Slide appear={false} direction="down" in={!trigger}>
+            {children}
+        </Slide>
+    );
+}
+
+HideOnScroll.propTypes = {
+    children: PropTypes.element.isRequired,
+    /**
+     * Injected by the documentation to work in an iframe.
+     * You won't need it on your project.
+     */
+    window: PropTypes.func,
+};
 
 function Index(props) {
     const { container } = props;
@@ -87,39 +117,72 @@ function Index(props) {
     const drawer = (
         <div>
             <div className={classes.toolbar} />
-            <Divider />
             <List>
-                {['About', 'Experience', 'Projects'].map((text, index) => (
-                    <ListItem button key={text} >
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
+                <Divider />
+                <ListItem button onClick={handleAbout}>
+                    <ListItemIcon>
+                        <InfoIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="About" />
+                </ListItem>
 
-                    </ListItem>
-                ))}
+                <ListItem button onClick={handleExp}>
+                    <ListItemIcon>
+                        <WorkIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Experience" />
+                </ListItem>
+
+                <ListItem button onClick={handleProj}>
+                    <ListItemIcon>
+                        <CreateIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Projects" />
+                </ListItem>
             </List>
-            <Divider />
+            <Grid container direction="column" alignItems="center" justify="center" className={classes.media}>
+
+                <Grid item>
+                    <IconButton>
+                        <GitHubIcon />
+                    </IconButton>
+                </Grid>
+
+                <Grid item>
+                    <IconButton>
+                        <LinkedInIcon />
+                    </IconButton>
+                </Grid>
+
+                <Grid item>
+                    <Divider orientation="vertical" />
+                </Grid>
+
+            </Grid>
         </div>
     );
 
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        className={classes.menuButton}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap>
-                        Sharandeep Singh
-          </Typography>
-                </Toolbar>
-            </AppBar>
+            <HideOnScroll {...props}>
+                <AppBar position="fixed" className={classes.appBar}>
+                    <Toolbar>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            className={classes.menuButton}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" noWrap>
+                            Sharandeep Singh
+                    </Typography>
+                    </Toolbar>
+                </AppBar>
+            </HideOnScroll>
             <nav className={classes.drawer} aria-label="options">
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Hidden smUp implementation="css">
@@ -151,7 +214,7 @@ function Index(props) {
                     </Drawer>
                 </Hidden>
             </nav>
-            <main className={classes.content}>
+            <Container className={classes.content} maxWidth="md">
                 <div className={classes.toolbar} />
                 <Box my={15}>
                     <Typography variant="subtitle1">Hi, my name is</Typography>
@@ -161,7 +224,10 @@ function Index(props) {
 
                 <Box my={25}>
                     <div ref={aboutRef}>
-                        <Typography variant="h4" >About</Typography>
+                        <Typography variant="h4">
+                            About
+                            <Divider />
+                        </Typography>
                     </div>
                     <Typography variant="body1">
                         Hello! I am Sharandeep, a Software Engineer with a versatile set of skills. I like to develop distributed applications
@@ -212,7 +278,8 @@ function Index(props) {
                     <div ref={expRef}>
                         <Typography variant="h4" gutterBottom>
                             Experience
-                    </Typography>
+                            <Divider />
+                        </Typography>
                     </div>
                     <TabBox />
 
@@ -222,7 +289,8 @@ function Index(props) {
                     <div ref={projRef}>
                         <Typography variant="h4" className={classes.text_5} gutterBottom>
                             Projects
-                    </Typography>
+                            <Divider />
+                        </Typography>
                     </div>
                     <Grid container direction="row" spacing={1}>
                         <Grid item>
@@ -247,8 +315,8 @@ function Index(props) {
                     </Grid>
                 </Box>
 
-            </main>
-        </div>
+            </Container>
+        </div >
     );
 }
 
