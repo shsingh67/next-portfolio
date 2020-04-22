@@ -59,7 +59,8 @@ const useStyles = makeStyles((theme) => ({
     media: {
         position: "absolute",
         bottom: "100px",
-    }
+    },
+
 }));
 
 const scrollToRef = (ref) => {
@@ -118,7 +119,6 @@ function Index(props) {
         <div>
             <div className={classes.toolbar} />
             <List>
-                <Divider />
                 <ListItem button onClick={handleAbout}>
                     <ListItemIcon>
                         <InfoIcon />
@@ -140,25 +140,20 @@ function Index(props) {
                     <ListItemText primary="Projects" />
                 </ListItem>
             </List>
-            <Grid container direction="column" alignItems="center" justify="center" className={classes.media}>
+            <Grid container alignItems="center" justify="center" className={classes.media}>
 
-                <Grid item>
-                    <IconButton>
-                        <GitHubIcon />
-                    </IconButton>
-                </Grid>
+                <IconButton>
+                    <GitHubIcon />
+                </IconButton>
 
-                <Grid item>
-                    <IconButton>
-                        <LinkedInIcon />
-                    </IconButton>
-                </Grid>
-
-                <Grid item>
-                    <Divider orientation="vertical" />
-                </Grid>
+                <Divider orientation="vertical" flexItem />
+                <IconButton>
+                    <LinkedInIcon />
+                </IconButton>
 
             </Grid>
+
+
         </div>
     );
 
@@ -224,15 +219,16 @@ function Index(props) {
 
                 <Box my={25}>
                     <div ref={aboutRef}>
-                        <Typography variant="h4">
+                        <Typography variant="h4" >
                             About
                             <Divider />
+
                         </Typography>
                     </div>
                     <Typography variant="body1">
                         Hello! I am Sharandeep, a Software Engineer with a versatile set of skills. I like to develop distributed applications
-                    that can be scaled to handle large amounts of traffic.<br></br> <br></br> My main focus is in back-end engineering, although I am also
-                    experienced in front-end development and DevOps.<br></br><br></br>
+                        that can be scaled to handle large amounts of traffic.<br></br> <br></br> My main focus is in back-end engineering, although I am also
+                        experienced in front-end development and DevOps.<br></br><br></br>
                     </Typography>
 
                     <Typography variant="subtitle1" gutterBottom>
@@ -293,25 +289,19 @@ function Index(props) {
                         </Typography>
                     </div>
                     <Grid container direction="row" spacing={1}>
-                        <Grid item>
-                            <ProjectCard title="Zule" link="https://github.com/shsingh67/next-hotels">
-                                A simple web application that allows hotel search and booking.<br></br><br></br>
-                            </ProjectCard>
 
-                        </Grid>
-
-                        <Grid item>
-                            <ProjectCard title="Hotels Search Service" link="https://github.com/shsingh67/hotels-search-service">
-                                Spring Boot micro-service that exposes a Rest API for searching hotels. The service uses Redis data storage to speed up query resutls.
+                        <ProjectCard title="Zule" link="https://github.com/shsingh67/next-hotels">
+                            A simple web application that allows hotel search and booking.<br></br><br></br>
                         </ProjectCard>
 
-                        </Grid>
-                        <Grid item>
-                            <ProjectCard title="Deployment Service" link="https://github.com/shsingh67/Services-Automation">
-                                A proof of concept to show how deploying docker containers to AWS EC2 can be completely automated.
+                        <ProjectCard title="Hotels Search Service" link="https://github.com/shsingh67/hotels-search-service">
+                            Spring Boot micro-service that exposes a Rest API for searching hotels. The service uses Redis data storage to speed up query resutls.
                         </ProjectCard>
 
-                        </Grid>
+                        <ProjectCard title="Deployment Service" link="https://github.com/shsingh67/Services-Automation">
+                            A proof of concept to show how deploying docker containers to AWS EC2 can be completely automated.
+                        </ProjectCard>
+
                     </Grid>
                 </Box>
 
