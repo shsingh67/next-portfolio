@@ -10,12 +10,11 @@ import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-      height:"300px",
-      width: "290px"
+   display: 'flex'
   },
   position: {
-      alignItems: "flex-end"
-    
+    alignItems: "flex-end"
+
   }
 });
 
@@ -23,7 +22,8 @@ const ProjectCard = props => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Grid item xs={12} md={6}>
+      <Card className={classes.root}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.title}
@@ -32,14 +32,15 @@ const ProjectCard = props => {
             {props.children}
           </Typography>
         </CardContent>
-     
-      <CardActions className={classes.position}>
-        <GitHubIcon/> 
-        <Button size="small" color="primary" href={props.link} target="_blank">
+
+        <CardActions className={classes.position}>
+          <GitHubIcon />
+          <Button size="small" color="primary" href={props.link} target="_blank">
             GitHub
         </Button>
-      </CardActions>
-    </Card>
+        </CardActions>
+      </Card>
+    </Grid>
   );
 }
 
