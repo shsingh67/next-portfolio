@@ -22,10 +22,7 @@ import WorkIcon from '@material-ui/icons/Work';
 import CreateIcon from '@material-ui/icons/Create';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-
-
-
-
+import SkillsPanel from '../components/SkillsPanel'
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -60,6 +57,15 @@ const useStyles = makeStyles((theme) => ({
         position: "absolute",
         bottom: "100px",
     },
+    text: {
+        position: "absolute",
+        bottom: "100px",
+        
+    },
+    ref: {
+        display: 'flex',
+        flexDirection:'row'
+    }
 
 }));
 
@@ -209,7 +215,7 @@ function Index(props) {
                     </Drawer>
                 </Hidden>
             </nav>
-            <Container className={classes.content} maxWidth="md">
+            <Grid item xs={12} md={8} className={classes.content} >
                 <div className={classes.toolbar} />
                 <Box my={15}>
                     <Typography variant="subtitle1">Hi, my name is</Typography>
@@ -218,12 +224,12 @@ function Index(props) {
                 </Box>
 
                 <Box my={25}>
-                    <div ref={aboutRef}>
+                    <div ref={aboutRef} className={classes.ref} >
                         <Typography variant="h4" >
                             About
-                            <Divider />
-
                         </Typography>
+                        <Divider />
+                       
                     </div>
                     <Typography variant="body1">
                         Hello! I am Sharandeep, a Software Engineer with a versatile set of skills. I like to develop distributed applications
@@ -231,42 +237,7 @@ function Index(props) {
                         experienced in front-end development and DevOps.<br></br><br></br>
                     </Typography>
 
-                    <Typography variant="subtitle1" gutterBottom>
-                        Languages:
-                    <Chip label="Java" variant="outlined" className={classes.chip} />
-                        <Chip label="Golang" variant="outlined" className={classes.chip} />
-                        <Chip label="Python" variant="outlined" className={classes.chip} />
-                        <Chip label="JavaScript" variant="outlined" className={classes.chip} />
-                    </Typography>
-
-                    <Typography variant="subtitle1" gutterBottom>
-                        DevOps:
-                    <Chip label="Jenkins" variant="outlined" className={classes.chip} />
-                        <Chip label="Kubernetes" variant="outlined" className={classes.chip} />
-                    </Typography>
-
-
-                    <Typography variant="subtitle1" gutterBottom>
-                        Front-End:
-                    <Chip label="React.Js" variant="outlined" className={classes.chip} />
-                        <Chip label="Next.Js" variant="outlined" className={classes.chip} />
-                    </Typography>
-
-                    <Typography variant="subtitle1" gutterBottom>
-                        Back-End:
-                    <Chip label="Spring Framework" variant="outlined" className={classes.chip} />
-                        <Chip label="Hibernate ORM" variant="outlined" className={classes.chip} />
-                        <Chip label="Spring Boot" variant="outlined" className={classes.chip} />
-                    </Typography>
-
-                    <Typography variant="subtitle1" gutterBottom>
-                        Databases:
-                    <Chip label="Kafka" variant="outlined" className={classes.chip} />
-                        <Chip label="Orcale SQL" variant="outlined" className={classes.chip} />
-                        <Chip label="MongoDB" variant="outlined" className={classes.chip} />
-                        <Chip label="Cassandra" variant="outlined" className={classes.chip} />
-                        <Chip label="DynamoDB" variant="outlined" className={classes.chip} />
-                    </Typography>
+                    <SkillsPanel />
 
                 </Box>
 
@@ -291,7 +262,7 @@ function Index(props) {
                     <Grid container direction="row" spacing={1}>
 
                         <ProjectCard title="Zule" link="https://github.com/shsingh67/next-hotels">
-                            A simple web application that allows hotel search and booking.<br></br><br></br>
+                            A simple web application that allows hotel search and booking.
                         </ProjectCard>
 
                         <ProjectCard title="Hotels Search Service" link="https://github.com/shsingh67/hotels-search-service">
@@ -305,8 +276,19 @@ function Index(props) {
                     </Grid>
                 </Box>
 
-            </Container>
+            </Grid>
+
+            <Hidden xsDown>
+
+                <Grid item >
+                    <Typography variant="body2" color="textSecondary" className={classes.text}>Created by Singh</Typography>
+                </Grid>
+
+            </Hidden>
+
         </div >
+
+
     );
 }
 
