@@ -18,8 +18,13 @@ const useStyles = makeStyles(theme => ({
     chip: {
         margin: theme.spacing(0.2),
     },
- 
-   
+    details: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > *': {
+          margin: theme.spacing(0.5),
+        },
+      },
 }));
 
 export default function SkillsPanel() {
@@ -36,21 +41,12 @@ export default function SkillsPanel() {
                     <Typography className={classes.heading}>Languages</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails className={classes.details}>
-                    <Hidden xsDown>
+                   
                         <Chip label="Java" variant="outlined" className={classes.chip} />
                         <Chip label="Golang" variant="outlined" className={classes.chip} />
                         <Chip label="Python" variant="outlined" className={classes.chip} />
                         <Chip label="JavaScript" variant="outlined" className={classes.chip} />
-                    </Hidden>
-
-                    <Hidden smUp>
-                    <Chip size="small" label="Java" variant="outlined" className={classes.chip} />
-                    <Chip size="small" label="Golang" variant="outlined" className={classes.chip} />
-                    <Chip size="small" label="Python" variant="outlined" className={classes.chip} />
-                    <Chip size="small" label="JavaScript" variant="outlined" className={classes.chip} />
-                    </Hidden>
                     
-
                 </ExpansionPanelDetails>
             </ExpansionPanel>
             <ExpansionPanel>
@@ -61,7 +57,7 @@ export default function SkillsPanel() {
                 >
                     <Typography className={classes.heading}>DevOps</Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className={classes.details}>
                     <Chip label="Jenkins" variant="outlined" className={classes.chip} />
                     <Chip label="Kubernetes" variant="outlined" className={classes.chip} />
                 </ExpansionPanelDetails>
@@ -74,7 +70,7 @@ export default function SkillsPanel() {
                 >
                     <Typography className={classes.heading}>Front-End</Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className={classes.details}>
                     <Chip label="React.Js" variant="outlined" className={classes.chip} />
                     <Chip label="Next.Js" variant="outlined" className={classes.chip} />
                 </ExpansionPanelDetails>
@@ -87,7 +83,7 @@ export default function SkillsPanel() {
                 >
                     <Typography className={classes.heading}>Back-End</Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className={classes.details}>
                     <Chip label="Spring Framework" variant="outlined" className={classes.chip} />
                     <Chip label="Hibernate ORM" variant="outlined" className={classes.chip} />
                     <Chip label="Spring Boot" variant="outlined" className={classes.chip} />
@@ -101,7 +97,7 @@ export default function SkillsPanel() {
                 >
                     <Typography className={classes.heading}>Databases</Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className={classes.details}>
                     <Chip label="Kafka" variant="outlined" className={classes.chip} />
                     <Chip label="Orcale SQL" variant="outlined" className={classes.chip} />
                     <Chip label="MongoDB" variant="outlined" className={classes.chip} />
