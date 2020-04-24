@@ -11,7 +11,7 @@ import { Grid, IconButton } from '@material-ui/core';
 const useStyles = makeStyles({
   root: {
     display: 'flex',
-    height: '250px'
+    height: '300px'
   },
   cardDetails: {
     flex: 1,
