@@ -23,7 +23,11 @@ import CreateIcon from '@material-ui/icons/Create';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import SkillsPanel from '../components/SkillsPanel'
+import Footer from '../components/Footer'
+
+
 const drawerWidth = 240;
+const drawerRightWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
     drawer: {
         [theme.breakpoints.up('sm')]: {
             width: drawerWidth,
+            flexShrink: 0,
+        },
+    },
+    drawerRight: {
+        [theme.breakpoints.up('sm')]: {
+            width: drawerRightWidth,
             flexShrink: 0,
         },
     },
@@ -49,24 +59,27 @@ const useStyles = makeStyles((theme) => ({
     drawerPaper: {
         width: drawerWidth,
     },
+    drawerRightPaper: {
+        width: drawerRightWidth,
+    },
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
     },
-    media: {
+    leftPanel: {
         position: "absolute",
         bottom: "100px",
     },
-    text: {
+    rightPanel: {
         position: "absolute",
-        bottom: "100px",
-        
+        bottom: "10px",
     },
-    ref: {
-        display: 'flex',
-        flexDirection:'row'
+    dividerV: {
+        height: "100px"
+    },
+    dividerH: {
+        width: "auto"
     }
-
 }));
 
 const scrollToRef = (ref) => {
@@ -146,20 +159,56 @@ function Index(props) {
                     <ListItemText primary="Projects" />
                 </ListItem>
             </List>
-            <Grid container alignItems="center" justify="center" className={classes.media}>
+            <Grid container alignItems="center" justify="center" className={classes.leftPanel}>
 
-                <IconButton>
+                <IconButton href="https://github.com/shsingh67" target="_blank">
                     <GitHubIcon />
                 </IconButton>
 
                 <Divider orientation="vertical" flexItem />
-                <IconButton>
+                <IconButton href="https://www.linkedin.com/in/sharandeep-singh-4160b2159/" target="_blank">
                     <LinkedInIcon />
                 </IconButton>
 
             </Grid>
 
 
+        </div>
+    );
+
+    const drawerRight = (
+        <div>
+            <div className={classes.toolbar}>
+
+
+                <Grid container spacing={2} direction="column" alignItems="center" justify="space-between" className={classes.rightPanel}>
+                    <Grid item>
+                        <Typography variant="body2" color="textSecondary">S</Typography>
+                        <Typography variant="body2" color="textSecondary">H</Typography>
+                        <Typography variant="body2" color="textSecondary">A</Typography>
+                        <Typography variant="body2" color="textSecondary">R</Typography>
+                        <Typography variant="body2" color="textSecondary">A</Typography>
+                        <Typography variant="body2" color="textSecondary">N</Typography>
+                        <Typography variant="body2" color="textSecondary">D</Typography>
+                        <Typography variant="body2" color="textSecondary">E</Typography>
+                        <Typography variant="body2" color="textSecondary">E</Typography>
+                        <Typography variant="body2" color="textSecondary">P</Typography>
+                    </Grid>
+
+                    <Grid item >
+                        <Typography variant="body2" color="textSecondary">S</Typography>
+                        <Typography variant="body2" color="textSecondary">I</Typography>
+                        <Typography variant="body2" color="textSecondary">N</Typography>
+                        <Typography variant="body2" color="textSecondary">G</Typography>
+                        <Typography variant="body2" color="textSecondary">H</Typography>
+                    </Grid>
+
+                    <Grid item>
+                        <Divider orientation="vertical" className={classes.dividerV} />
+                    </Grid>
+                </Grid>
+
+            </div>
         </div>
     );
 
@@ -224,18 +273,27 @@ function Index(props) {
                 </Box>
 
                 <Box my={25}>
-                    <div ref={aboutRef} className={classes.ref} >
-                        <Typography variant="h4" >
-                            About
-                        </Typography>
-                        <Divider />
-                       
+                    <div ref={aboutRef}>
+                        <Grid container spacing={2} direction="row" alignItems="center">
+                            <Grid item>
+                                <Typography variant="h4" >
+                                    About
+                                </Typography>
+                            </Grid>
+
+                            <Grid item xs={8}>
+                                <Divider orientation="horizontal" className={classes.dividerH} />
+
+                            </Grid>
+                            <Grid item xs={9}>
+                                <Typography variant="body1">
+                                    Hello! I am Sharandeep, a Software Engineer with a versatile set of skills. I like to develop distributed applications
+                                    that can be scaled to handle large amounts of traffic.<br></br> <br></br> My main focus is in back-end engineering, although I am also
+                                    experienced in front-end development and DevOps.<br></br><br></br>
+                                </Typography>
+                            </Grid>
+                        </Grid>
                     </div>
-                    <Typography variant="body1">
-                        Hello! I am Sharandeep, a Software Engineer with a versatile set of skills. I like to develop distributed applications
-                        that can be scaled to handle large amounts of traffic.<br></br> <br></br> My main focus is in back-end engineering, although I am also
-                        experienced in front-end development and DevOps.<br></br><br></br>
-                    </Typography>
 
                     <SkillsPanel />
 
@@ -243,10 +301,17 @@ function Index(props) {
 
                 <Box my={25}>
                     <div ref={expRef}>
-                        <Typography variant="h4" gutterBottom>
-                            Experience
-                            <Divider />
-                        </Typography>
+                        <Grid container spacing={2} direction="row" alignItems="center">
+                            <Grid item>
+                                <Typography variant="h4" >
+                                    Experience
+                            </Typography>
+                            </Grid>
+
+                            <Grid item xs={8}>
+                                <Divider orientation="horizontal" className={classes.dividerH} />
+                            </Grid>
+                        </Grid>
                     </div>
                     <TabBox />
 
@@ -254,10 +319,17 @@ function Index(props) {
 
                 <Box my={25}>
                     <div ref={projRef}>
-                        <Typography variant="h4" className={classes.text_5} gutterBottom>
-                            Projects
-                            <Divider />
-                        </Typography>
+                        <Grid container spacing={2} direction="row" alignItems="center">
+                            <Grid item>
+                                <Typography variant="h4" >
+                                    Projects
+                                </Typography>
+                            </Grid>
+
+                            <Grid item xs={8}>
+                                <Divider orientation="horizontal" className={classes.dividerH} />
+                            </Grid>
+                        </Grid>
                     </div>
                     <Grid container direction="row" spacing={1}>
 
@@ -276,18 +348,25 @@ function Index(props) {
                     </Grid>
                 </Box>
 
+                <Footer />
+
             </Grid>
 
-            <Hidden xsDown>
-
-                <Grid item >
-                    <Typography variant="body2" color="textSecondary" className={classes.text}>Created by Singh</Typography>
-                </Grid>
-
+            <Hidden xsDown implementation="css">
+                <nav className={classes.drawerRight}>
+                    <Drawer
+                        container={container}
+                        variant='permanent'
+                        anchor='right'
+                        classes={{
+                            paper: classes.drawerRightPaper,
+                        }}
+                    >
+                        {drawerRight}
+                    </Drawer>
+                </nav>
             </Hidden>
-
         </div >
-
 
     );
 }
