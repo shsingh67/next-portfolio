@@ -267,116 +267,131 @@ function Index(props) {
             <Grid item xs={12} md={8} className={classes.content} >
                 <div className={classes.toolbar} />
                 <Box my={15}>
-                    <Typography variant="subtitle1">Hi, my name is</Typography>
-                    <Typography variant="h2">Sharandeep Singh</Typography>
-                    <Typography variant="body1">I am a Software Engineer from San Jose State University, located in Union City, CA.</Typography>
+                    <Grid container direction="row" alignItems="center" justify="center">
+                        <Grid item xs={12}>
+                            <Typography variant="subtitle1" align="center">Hi, my name is</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography variant="h2" align="center">Sharandeep Singh</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography variant="body1" align="center">I am a Software Engineer from San Jose State University, located in Union City, CA.</Typography>
+                        </Grid>
+                    </Grid>  
                 </Box>
 
-                <Box my={25}>
-                    <div ref={aboutRef}>
-                        <Grid container spacing={2} direction="row" alignItems="center">
-                            <Grid item>
-                                <Typography variant="h4" >
-                                    About
+                    <Box my={25}>
+                        <div ref={aboutRef}>
+                            <Grid container spacing={2} direction="row" alignItems="center" justify="center">
+                                <Grid item>
+                                    <Typography variant="h4" >
+                                        About
                                 </Typography>
-                            </Grid>
+                                </Grid>
 
-                            <Grid item xs={8}>
-                                <Divider orientation="horizontal" className={classes.dividerH} />
+                                <Grid item xs={9}>
+                                    <Divider orientation="horizontal" className={classes.dividerH} />
 
+                                </Grid>
+                                <Grid item xs={9}>
+                                    <Typography variant="body1">
+                                        Hello! I am Sharandeep, a Software Engineer with a versatile set of skills. I like to develop distributed applications
+                                        that can be scaled to handle large amounts of traffic.<br></br> <br></br> My main focus is in back-end engineering, although I am also
+                                        experienced in front-end development and DevOps.<br></br><br></br>
+                                    </Typography>
+                                </Grid>
+
+                                <Grid item xs={9}>
+                                    <SkillsPanel />
+                                </Grid>
                             </Grid>
-                            <Grid item xs={9}>
-                                <Typography variant="body1">
-                                    Hello! I am Sharandeep, a Software Engineer with a versatile set of skills. I like to develop distributed applications
-                                    that can be scaled to handle large amounts of traffic.<br></br> <br></br> My main focus is in back-end engineering, although I am also
-                                    experienced in front-end development and DevOps.<br></br><br></br>
+                        </div>
+                    </Box>
+
+                    <Box my={25}>
+                        <div ref={expRef}>
+                            <Grid container spacing={2} direction="row" alignItems="center" justify="center">
+                                <Grid item>
+                                    <Typography variant="h4" >
+                                        Experience
                                 </Typography>
-                            </Grid>
-                        </Grid>
-                    </div>
+                                </Grid>
 
-                    <SkillsPanel />
+                                <Grid item xs={9}>
+                                    <Divider orientation="horizontal" className={classes.dividerH} />
+                                </Grid>
 
-                </Box>
-
-                <Box my={25}>
-                    <div ref={expRef}>
-                        <Grid container spacing={2} direction="row" alignItems="center">
-                            <Grid item>
-                                <Typography variant="h4" >
-                                    Experience
-                            </Typography>
+                                <Grid item xs={11}>
+                                    <TabBox />
+                                </Grid>
                             </Grid>
 
-                            <Grid item xs={8}>
-                                <Divider orientation="horizontal" className={classes.dividerH} />
+                        </div>
+
+
+                    </Box>
+
+                    <Box my={25}>
+                        <div ref={projRef}>
+                        <Grid container spacing={2} direction="row" alignItems="center" justify="center">
+                                <Grid item>
+                                    <Typography variant="h4" >
+                                        Projects
+                                    </Typography>
+                                </Grid>
+
+                                <Grid item xs={9}>
+                                    <Divider orientation="horizontal" className={classes.dividerH} />
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </div>
-                    <TabBox />
 
-                </Box>
+                        </div>
+                        <Grid container direction="row" spacing={1}>
 
-                <Box my={25}>
-                    <div ref={projRef}>
-                        <Grid container spacing={2} direction="row" alignItems="center">
-                            <Grid item>
-                                <Typography variant="h4" >
-                                    Projects
-                                </Typography>
-                            </Grid>
-
-                            <Grid item xs={8}>
-                                <Divider orientation="horizontal" className={classes.dividerH} />
-                            </Grid>
-                        </Grid>
-                    </div>
-                    <Grid container direction="row" spacing={1}>
-
-                        <ProjectCard title="Zule" link="https://github.com/shsingh67/next-hotels">
-                            A simple web application that allows hotel search and booking.
+                            <ProjectCard title="Zule" link="https://github.com/shsingh67/next-hotels">
+                                A simple web application that allows hotel search and booking.
                         </ProjectCard>
 
-                        <ProjectCard title="Hotels Search Service" link="https://github.com/shsingh67/hotels-search-service">
-                            Spring Boot micro-service that exposes a Rest API for searching hotels. The service uses Redis data storage to speed up query resutls.
+                            <ProjectCard title="Hotels Search Service" link="https://github.com/shsingh67/hotels-search-service">
+                                Spring Boot micro-service that exposes a Rest API for searching hotels. The service uses Redis data storage to speed up query resutls.
                         </ProjectCard>
 
-                        <ProjectCard title="Deployment Service" link="https://github.com/shsingh67/Services-Automation">
-                            A proof of concept to show how deploying docker containers to AWS EC2 can be completely automated.
+                            <ProjectCard title="Deployment Service" link="https://github.com/shsingh67/Services-Automation">
+                                A proof of concept to show how deploying docker containers to AWS EC2 can be completely automated.
                         </ProjectCard>
 
-                    </Grid>
-                </Box>
+                        </Grid>
+                    </Box>
 
-                <Footer />
+                    <Footer />
 
             </Grid>
 
-            <Hidden xsDown implementation="css">
-                <nav className={classes.drawerRight}>
-                    <Drawer
-                        container={container}
-                        variant='permanent'
-                        anchor='right'
-                        classes={{
-                            paper: classes.drawerRightPaper,
-                        }}
-                    >
-                        {drawerRight}
-                    </Drawer>
-                </nav>
-            </Hidden>
+                <Hidden xsDown implementation="css">
+                    <nav className={classes.drawerRight}>
+                        <Drawer
+                            container={container}
+                            variant='permanent'
+                            anchor='right'
+                            classes={{
+                                paper: classes.drawerRightPaper,
+                            }}
+                        >
+                            {drawerRight}
+                        </Drawer>
+                    </nav>
+                </Hidden>
         </div >
 
     );
 }
 
 Index.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    container: PropTypes.any,
+                /**
+                 * Injected by the documentation to work in an iframe.
+                 * You won't need it on your project.
+                 */
+                container: PropTypes.any,
 };
 
 export default Index;
