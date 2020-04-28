@@ -70,6 +70,10 @@ const useStyles = makeStyles((theme) => ({
         position: "absolute",
         bottom: "100px",
     },
+    leftPanelMobile: {
+        position: "absolute",
+        bottom: "50px",
+    },
     rightPanel: {
         position: "absolute",
         bottom: "10px",
@@ -79,7 +83,10 @@ const useStyles = makeStyles((theme) => ({
     },
     dividerH: {
         width: "auto"
-    }
+    },
+    nested: {
+        paddingLeft: theme.spacing(12),
+    },
 }));
 
 const scrollToRef = (ref) => {
@@ -157,20 +164,36 @@ function Index(props) {
                         <CreateIcon />
                     </ListItemIcon>
                     <ListItemText primary="Projects" />
+
                 </ListItem>
             </List>
-            <Grid container alignItems="center" justify="center" className={classes.leftPanel}>
+            <Hidden xsDown>
+                <Grid container alignItems="center" justify="center" className={classes.leftPanel}>
 
-                <IconButton href="https://github.com/shsingh67" target="_blank">
-                    <GitHubIcon />
-                </IconButton>
+                    <IconButton href="https://github.com/shsingh67" target="_blank">
+                        <GitHubIcon />
+                    </IconButton>
 
-                <Divider orientation="vertical" flexItem />
-                <IconButton href="https://www.linkedin.com/in/sharandeep-singh-4160b2159/" target="_blank">
-                    <LinkedInIcon />
-                </IconButton>
+                    <Divider orientation="vertical" flexItem />
+                    <IconButton href="https://www.linkedin.com/in/sharandeep-singh-4160b2159/" target="_blank">
+                        <LinkedInIcon />
+                    </IconButton>
+                </Grid>
+            </Hidden>
 
-            </Grid>
+            <Hidden smUp implementation="css">
+                <Grid container alignItems="center" justify="center" className={classes.leftPanelMobile}>
+
+                    <IconButton href="https://github.com/shsingh67" target="_blank">
+                        <GitHubIcon />
+                    </IconButton>
+
+                    <Divider orientation="vertical" flexItem />
+                    <IconButton href="https://www.linkedin.com/in/sharandeep-singh-4160b2159/" target="_blank">
+                        <LinkedInIcon />
+                    </IconButton>
+                </Grid>
+            </Hidden>
 
 
         </div>
@@ -275,123 +298,128 @@ function Index(props) {
                             <Typography variant="h2" align="center">Sharandeep Singh</Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography variant="body1" align="center">I am a Software Engineer from San Jose State University, located in Union City, CA.</Typography>
+                            <Typography variant="body1" align="center">I am a software engineer located in Union City, CA.</Typography>
                         </Grid>
-                    </Grid>  
+                    </Grid>
                 </Box>
 
-                    <Box my={25}>
-                        <div ref={aboutRef}>
-                            <Grid container spacing={2} direction="row" alignItems="center" justify="center">
-                                <Grid item>
-                                    <Typography variant="h4" >
-                                        About
+                <Box my={25}>
+                    <div ref={aboutRef}>
+                        <Grid container spacing={2} direction="row" alignItems="center" justify="center">
+                            <Grid item>
+                                <Typography variant="h4" >
+                                    About
                                 </Typography>
-                                </Grid>
+                            </Grid>
 
-                                <Grid item xs={9}>
-                                    <Divider orientation="horizontal" className={classes.dividerH} />
+                            <Grid item xs={9}>
+                                <Divider orientation="horizontal" className={classes.dividerH} />
 
-                                </Grid>
-                                <Grid item xs={9}>
-                                    <Typography variant="body1">
+                            </Grid>
+                            <Grid item xs={9}>
+                                <Typography variant="body1">
                                         Hello! I am Sharandeep, a Software Engineer with a versatile set of skills. I like to develop distributed applications
                                         that can be scaled to handle large amounts of traffic.<br></br> <br></br> My main focus is in back-end engineering, although I am also
                                         experienced in front-end development and DevOps.<br></br><br></br>
-                                    </Typography>
-                                </Grid>
-
-                                <Grid item xs={9}>
-                                    <SkillsPanel />
-                                </Grid>
-                            </Grid>
-                        </div>
-                    </Box>
-
-                    <Box my={25}>
-                        <div ref={expRef}>
-                            <Grid container spacing={2} direction="row" alignItems="center" justify="center">
-                                <Grid item>
-                                    <Typography variant="h4" >
-                                        Experience
                                 </Typography>
-                                </Grid>
-
-                                <Grid item xs={9}>
-                                    <Divider orientation="horizontal" className={classes.dividerH} />
-                                </Grid>
-
-                                <Grid item xs={11}>
-                                    <TabBox />
-                                </Grid>
                             </Grid>
 
-                        </div>
-
-
-                    </Box>
-
-                    <Box my={25}>
-                        <div ref={projRef}>
-                        <Grid container spacing={2} direction="row" alignItems="center" justify="center">
-                                <Grid item>
-                                    <Typography variant="h4" >
-                                        Projects
-                                    </Typography>
-                                </Grid>
-
-                                <Grid item xs={9}>
-                                    <Divider orientation="horizontal" className={classes.dividerH} />
-                                </Grid>
+                            <Grid item xs={9}>
+                                <SkillsPanel />
                             </Grid>
-
-                        </div>
-                        <Grid container direction="row" spacing={1}>
-
-                            <ProjectCard title="Zule" link="https://github.com/shsingh67/next-hotels">
-                                A simple web application that allows hotel search and booking.
-                        </ProjectCard>
-
-                            <ProjectCard title="Hotels Search Service" link="https://github.com/shsingh67/hotels-search-service">
-                                Spring Boot micro-service that exposes a Rest API for searching hotels. The service uses Redis data storage to speed up query resutls.
-                        </ProjectCard>
-
-                            <ProjectCard title="Deployment Service" link="https://github.com/shsingh67/Services-Automation">
-                                A proof of concept to show how deploying docker containers to AWS EC2 can be completely automated.
-                        </ProjectCard>
-
                         </Grid>
-                    </Box>
+                    </div>
+                </Box>
 
-                    <Footer />
+                <Box my={25}>
+                    <div ref={expRef}>
+                        <Grid container spacing={2} direction="row" alignItems="center" justify="center">
+                            <Grid item>
+                                <Typography variant="h4" >
+                                    Experience
+                                </Typography>
+                            </Grid>
+
+                            <Grid item xs={9}>
+                                <Divider orientation="horizontal" className={classes.dividerH} />
+                            </Grid>
+
+                            <Grid item xs={11}>
+                                <TabBox />
+                            </Grid>
+                        </Grid>
+
+                    </div>
+
+
+                </Box>
+
+                <Box my={25}>
+                    <div ref={projRef}>
+                        <Grid container spacing={2} direction="row" alignItems="center" justify="center">
+                            <Grid item>
+                                <Typography variant="h4" >
+                                    Projects
+                                    </Typography>
+                            </Grid>
+
+                            <Grid item xs={9}>
+                                <Divider orientation="horizontal" className={classes.dividerH} />
+                            </Grid>
+                        </Grid>
+
+                    </div>
+                    <Grid container direction="row" spacing={1}>
+
+                        <ProjectCard title="Zule" link="https://github.com/shsingh67/next-hotels">
+                            A simple web application that allows hotel search and booking.
+                        </ProjectCard>
+
+                        <ProjectCard title="Hotels Search Service" link="https://github.com/shsingh67/hotels-search-service">
+                            Spring Boot micro-service that exposes a Rest API for searching hotels. The service uses Redis data storage to speed up query resutls.
+                        </ProjectCard>
+
+                        <ProjectCard title="Deployment Service" link="https://github.com/shsingh67/Services-Automation">
+                            A proof of concept to show how deploying docker containers to AWS EC2 can be completely automated.
+                        </ProjectCard>
+
+                        <ProjectCard title="Portfolio Website" link="https://github.com/shsingh67/next-portfolio">
+                            Portfolio website source code.
+                        </ProjectCard>
+
+
+                    </Grid>
+                </Box>
+
+                <Footer />
 
             </Grid>
 
-                <Hidden xsDown implementation="css">
-                    <nav className={classes.drawerRight}>
-                        <Drawer
-                            container={container}
-                            variant='permanent'
-                            anchor='right'
-                            classes={{
-                                paper: classes.drawerRightPaper,
-                            }}
-                        >
-                            {drawerRight}
-                        </Drawer>
-                    </nav>
-                </Hidden>
+            <Hidden xsDown implementation="css">
+                <nav className={classes.drawerRight}>
+                    <Drawer
+                        container={container}
+                        variant='permanent'
+                        anchor='right'
+                        classes={{
+                            paper: classes.drawerRightPaper,
+                        }}
+                    >
+                        {drawerRight}
+                    </Drawer>
+                </nav>
+            </Hidden>
         </div >
 
     );
 }
 
 Index.propTypes = {
-                /**
-                 * Injected by the documentation to work in an iframe.
-                 * You won't need it on your project.
-                 */
-                container: PropTypes.any,
+    /**
+     * Injected by the documentation to work in an iframe.
+     * You won't need it on your project.
+     */
+    container: PropTypes.any,
 };
 
 export default Index;
