@@ -38,6 +38,7 @@ const ProjectCard = props => {
             </Typography>
           </CardContent>
         </div>
+        
         <CardActions className={classes.position}>
           <IconButton href={props.link} target="_blank">
             <GitHubIcon />
